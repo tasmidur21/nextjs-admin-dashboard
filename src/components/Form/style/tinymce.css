@@ -1,0 +1,10 @@
+/* .tox-statusbar {
+    display: none !important;
+} */
+.tox-promotion {
+    display: none !important;
+}
+
+.tox-statusbar__branding{
+    display: none !important;
+}

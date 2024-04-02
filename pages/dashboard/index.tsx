@@ -11,7 +11,7 @@ import AccountBalance from '@/content/Dashboards/Crypto/AccountBalance';
 import Wallets from '@/content/Dashboards/Crypto/Wallets';
 import AccountSecurity from '@/content/Dashboards/Crypto/AccountSecurity';
 import WatchList from '@/content/Dashboards/Crypto/WatchList';
-import withAuth from '@/components/Auth/withAuth.midleware.component';
+import withAuth from '@/middleware/withAuth.midleware';
 
 function DashboardCrypto() {
   return (

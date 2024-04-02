@@ -1,0 +1,16 @@
+.autcomplete .MuiAutocomplete-inputRoot {
+    padding: 3px;
+}
+
+.css-1dybbl5-MuiChip-label{
+  padding-left: 5px !important;
+  padding-right: 10px !important;
+}
+
+/* .css-5cf735-MuiButtonBase-root-MuiChip-root {
+  height: 26px !important;
+}
+
+.css-5cf735-MuiButtonBase-root-MuiChip-root .MuiChip-deleteIcon{
+  font-size: 17px !important;
+} */

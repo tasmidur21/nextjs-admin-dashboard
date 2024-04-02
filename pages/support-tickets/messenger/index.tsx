@@ -19,7 +19,7 @@ import {
   IconButton,
   useTheme
 } from '@mui/material';
-import withAuth from '@/components/Auth/withAuth.midleware.component';
+import withAuth from '@/middleware/withAuth.midleware';
 
 const RootWrapper = styled(Box)(
   ({ theme }) => `

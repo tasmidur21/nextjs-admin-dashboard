@@ -1,147 +1,186 @@
-import Head from 'next/head';
 import SidebarLayout from '@/layouts/SidebarLayout';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-
-import PageTitle from '@/components/PageTitle';
-import PageTitleWrapper from '@/components/PageTitleWrapper';
 import {
-  Container,
-  Grid,
-  Card,
-  CardHeader,
-  CardContent,
-  Divider
+Box
 } from '@mui/material';
-import Button from '@mui/material/Button';
-import Avatar from '@mui/material/Avatar';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Dialog from '@mui/material/Dialog';
-import PersonIcon from '@mui/icons-material/Person';
-import AddIcon from '@mui/icons-material/Add';
-import Typography from '@mui/material/Typography';
-import { blue } from '@mui/material/colors';
-import Footer from '@/components/Footer';
+import AdminPanelPageWrapper from '@/components/Page/AdminPanelPageWrapper';
+import { TextField } from '@/components/Form';
 
-const emails = ['username@gmail.com', 'user02@gmail.com'];
-
-function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props;
-
-  const handleClose = () => {
-    onClose(selectedValue);
-  };
-
-  const handleListItemClick = (value) => {
-    onClose(value);
-  };
-
-  return (
-    <Dialog onClose={handleClose} open={open}>
-      <DialogTitle>Set backup account</DialogTitle>
-      <List sx={{ pt: 0 }}>
-        {emails.map((email) => (
-          <ListItem
-            button
-            onClick={() => handleListItemClick(email)}
-            key={email}
-          >
-            <ListItemAvatar>
-              <Avatar sx={{ bgcolor: blue[100], color: blue[600] }}>
-                <PersonIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={email} />
-          </ListItem>
-        ))}
-
-        <ListItem
-          autoFocus
-          button
-          onClick={() => handleListItemClick('addAccount')}
-        >
-          <ListItemAvatar>
-            <Avatar>
-              <AddIcon />
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText primary="Add account" />
-        </ListItem>
-      </List>
-    </Dialog>
-  );
-}
-
-SimpleDialog.propTypes = {
-  onClose: PropTypes.func.isRequired,
-  open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired
-};
-
-function Modals() {
-  const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(emails[1]);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (value) => {
-    setOpen(false);
-    setSelectedValue(value);
-  };
-
+function UserUpdateOrCreate() {
   return (
     <>
-      <Head>
-        <title>Modals - Components</title>
-      </Head>
-      <PageTitleWrapper>
-        <PageTitle
-          heading="Modals"
-          subHeading="Dialogs inform users about a task and can contain critical information, require decisions, or involve multiple tasks."
-          docs="https://material-ui.com/components/dialogs/"
-        />
-      </PageTitleWrapper>
-      <Container maxWidth="lg">
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="stretch"
-          spacing={3}
+      <AdminPanelPageWrapper
+        pageHeaderTitle={'Create User'}
+        pageTitle={'User Create'}
+        pageSubTitle={'users/create'}
+      >
+        <Box
+          component="form"
+          sx={{
+            '& .MuiTextField-root': { m: 1, width: '25ch' }
+          }}
+          noValidate
+          autoComplete="off"
         >
-          <Grid item xs={12}>
-            <Card>
-              <CardHeader title="Basic Dialog" />
-              <Divider />
-              <CardContent>
-                <Typography variant="subtitle1" component="div">
-                  Selected: {selectedValue}
-                </Typography>
-                <br />
-                <Button variant="outlined" onClick={handleClickOpen}>
-                  Open simple dialog
-                </Button>
-                <SimpleDialog
-                  selectedValue={selectedValue}
-                  open={open}
-                  onClose={handleClose}
-                />
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
-      <Footer />
+          <div>
+            <TextField
+              required
+              id="outlined-required"
+              label="Required"
+              defaultValue="Hello World"
+            />
+            <TextField
+              disabled
+              id="outlined-disabled"
+              label="Disabled"
+              defaultValue="Hello World"
+            />
+            <TextField
+              id="outlined-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+            />
+            <TextField
+              id="outlined-read-only-input"
+              label="Read Only"
+              defaultValue="Hello World"
+              InputProps={{
+                readOnly: true
+              }}
+            />
+            <TextField
+              id="outlined-number"
+              label="Number"
+              type="number"
+              InputLabelProps={{
+                shrink: true
+              }}
+            />
+            <TextField
+              id="outlined-search"
+              label="Search field"
+              type="search"
+            />
+            <TextField
+              id="outlined-helperText"
+              label="Helper text"
+              defaultValue="Default Value"
+              helperText="Some important text"
+            />
+          </div>
+          <div>
+            <TextField
+              required
+              id="filled-required"
+              label="Required"
+              defaultValue="Hello World"
+              variant="filled"
+            />
+            <TextField
+              disabled
+              id="filled-disabled"
+              label="Disabled"
+              defaultValue="Hello World"
+              variant="filled"
+            />
+            <TextField
+              id="filled-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              variant="filled"
+            />
+            <TextField
+              id="filled-read-only-input"
+              label="Read Only"
+              defaultValue="Hello World"
+              InputProps={{
+                readOnly: true
+              }}
+              variant="filled"
+            />
+            <TextField
+              id="filled-number"
+              label="Number"
+              type="number"
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="filled"
+            />
+            <TextField
+              id="filled-search"
+              label="Search field"
+              type="search"
+              variant="filled"
+            />
+            <TextField
+              id="filled-helperText"
+              label="Helper text"
+              defaultValue="Default Value"
+              helperText="Some important text"
+              variant="filled"
+            />
+          </div>
+          <div>
+            <TextField
+              required
+              id="standard-required"
+              label="Required"
+              defaultValue="Hello World"
+              variant="standard"
+            />
+            <TextField
+              disabled
+              id="standard-disabled"
+              label="Disabled"
+              defaultValue="Hello World"
+              variant="standard"
+            />
+            <TextField
+              id="standard-password-input"
+              label="Password"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+            />
+            <TextField
+              id="standard-read-only-input"
+              label="Read Only"
+              defaultValue="Hello World"
+              InputProps={{
+                readOnly: true
+              }}
+              variant="standard"
+            />
+            <TextField
+              id="standard-number"
+              label="Number"
+              type="number"
+              InputLabelProps={{
+                shrink: true
+              }}
+              variant="standard"
+            />
+            <TextField
+              id="standard-search"
+              label="Search field"
+              type="search"
+              variant="standard"
+            />
+            <TextField
+              id="standard-helperText"
+              label="Helper text"
+              defaultValue="Default Value"
+              helperText="Some important text"
+              variant="standard"
+            />
+          </div>
+        </Box>
+      </AdminPanelPageWrapper>
     </>
   );
 }
+UserUpdateOrCreate.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
 
-Modals.getLayout = (page) => <SidebarLayout>{page}</SidebarLayout>;
-
-export default Modals;
+export default UserUpdateOrCreate;

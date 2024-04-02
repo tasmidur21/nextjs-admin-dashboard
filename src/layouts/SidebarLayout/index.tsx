@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Sidebar from './Sidebar';
 import Header from './Header';
-import withAuth from '@/components/Auth/withAuth.midleware.component';
+import withAuth from '@/middleware/withAuth.midleware';
 
 interface SidebarLayoutProps {
   children?: ReactNode;
